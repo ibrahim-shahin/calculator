@@ -3,12 +3,13 @@ pipeline {
     stages {
         stage("Compile") {
             steps {
-                sh "sudo ./gradlew compileJava"
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh "./gradlew compileJava"
             }
         }
         stage("Unit test") {
             steps {
-                sh "sudo ./gradlew test"
+                sh "./gradlew test"
             }
         }
     }
